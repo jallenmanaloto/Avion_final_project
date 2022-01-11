@@ -39,6 +39,13 @@ module Api
                 render json: { user: user, activities: activities }
             end
 
+            def user_establishments
+                user = User.find(params[:id])
+                establishments = user.establishments
+
+                render json: { establishments: establishments }
+            end
+
             def user_requests
                 user = User.find(params[:id])
                 requests = user.requests
