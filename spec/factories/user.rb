@@ -5,5 +5,6 @@ FactoryBot.define do
         middle_name { "M" }
         email { "test01@email.com" }
         password { "password1234" }
+        role { "health_user" }
     end
 end
