@@ -2,6 +2,10 @@ module Api
     module V1
         class UsersController < ApplicationController
 
+            def all_positive
+                positive = User.where(covid_status: 'Positive')
+            end
+            
             def index
                 users = User.all
 
