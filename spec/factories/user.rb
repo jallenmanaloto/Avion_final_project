@@ -6,5 +6,6 @@ FactoryBot.define do
         email { "test01@email.com" }
         password { "password1234" }
         role { "health_user" }
+        covid_status { "Positive" }
     end
 end
