@@ -4,6 +4,8 @@ module Api
 
             def all_positive
                 positive = User.where(covid_status: 'Positive')
+
+                render json: { positive: positive }
             end
 
             def index
