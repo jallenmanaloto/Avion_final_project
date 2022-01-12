@@ -12,6 +12,10 @@ Rails.application.routes.draw do
         get :user_requests, on: :member
         post :search_user, on: :member
       end
+      resource :establishment do
+        get :index, on: :member
+        get :get_users, on: :member
+      end
     end
   end
 end
