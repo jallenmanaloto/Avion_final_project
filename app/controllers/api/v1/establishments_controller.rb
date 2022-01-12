@@ -4,6 +4,8 @@ module Api
         
             def index
                 establishments = Establishment.all
+
+                render json: { establishments: establishments }
             end
 
             def get_users
@@ -12,5 +14,6 @@ module Api
 
                 render json: { users: users }
             end
+        end
     end
 end
