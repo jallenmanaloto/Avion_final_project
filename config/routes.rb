@@ -5,7 +5,13 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resource :users
+      resource :users do
+        get :all_positive, on: :member
+        get :user_activities, on: :member
+        get :user_establishments, on: :member
+        get :user_requests, on: :member
+        post :search_user, on: :member
+      end
     end
   end
 end
