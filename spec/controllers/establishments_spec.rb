@@ -18,7 +18,7 @@ describe 'Establishment request', type: :request do
     context 'GET the list of all users that has been in the establishment' do
         before {get '/api/v1/establishment', params: {:id => establishment.id}}
 
-        it 'returns a hash containing list of all establishments' do
+        it 'returns a hash containing list of all establishments if not empty' do
             expect(JSON.parse(response.body).size).to_not be_nil
         end
 
