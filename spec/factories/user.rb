@@ -7,5 +7,6 @@ FactoryBot.define do
         password { "password1234" }
         role { "health_user" }
         covid_status { "Positive" }
+        id { 1 }
     end
 end
