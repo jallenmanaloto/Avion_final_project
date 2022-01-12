@@ -21,11 +21,14 @@ RSpec.describe Activity, type: :model do
         expect(activity.errors).to be_present
       end
     end
+  end
 
-    context 'with complete parameters' do
-      it 'will return a success record' do
+  describe 'Relationship' do
+    context 'with User Model' do
+      it 'has a belongs_to association' do
+        activity = Activity.reflect_on_association(:user)
 
-        expect(activity).to be_valid
+        expect(activity.macro).to eq(:belongs_to)
       end
     end
   end

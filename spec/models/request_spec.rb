@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Request, type: :model do
+  let(:user) { FactoryBot.build(:user) }
   let(:request) { FactoryBot.build(:request) }
 
   describe 'requests sent' do
@@ -21,11 +22,14 @@ RSpec.describe Request, type: :model do
         expect(request.errors).to be_present
       end
     end
+  end
 
-    context 'with complete parameters' do
-      it 'will return a valid record' do
+  describe 'Relationship' do
+    context 'with User model' do
+      it 'has belongs_to association' do
+        request = Request.reflect_on_association(:user)
 
-        expect(request).to be_valid
+        expect(request.macro).to eq(:belongs_to)
       end
     end
   end
