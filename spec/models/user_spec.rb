@@ -62,8 +62,40 @@ RSpec.describe User, type: :model do
 
         context 'with valid parameters' do
             it 'accepts registration' do
+                user = User.new
+                user.first_name = 'John'
+                user.last_name = 'Doe'
+                user.middle_name = 'M'
+                user.email = 'johndoevalid@email.com'
+                user.password = 'johnnypassword'
 
                 expect(user).to be_valid
+            end
+        end
+    end
+
+    describe 'Relationship' do
+        context 'with Request model' do
+            it 'has_many association' do
+                user = User.reflect_on_association(:requests)
+
+                expect(user.macro).to eq(:has_many)
+            end
+        end
+
+        context 'with Activity model' do
+            it 'has_many association' do
+                user = User.reflect_on_association(:activities)
+
+                expect(user.macro).to eq(:has_many)
+            end
+        end
+
+        context 'with Establishment model' do
+            it 'has_many association' do
+                user = User.reflect_on_association(:establishments)
+
+                expect(user.macro).to eq(:has_and_belongs_to_many)
             end
         end
     end
