@@ -9,7 +9,7 @@ module Api
             end
 
             def index
-                users = User.all
+                users = User.where(role: 'health_user')
 
                 render json: { users: users }
             end
@@ -58,7 +58,7 @@ module Api
             private
 
             def user_params
-                params.require(:user).permit(:first_name, :middle_name, :last_name, :role)
+                params.require(:user).permit(:first_name, :middle_name, :last_name, :covid_status)
             end
         end
     end
