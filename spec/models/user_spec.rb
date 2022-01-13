@@ -58,6 +58,18 @@ RSpec.describe User, type: :model do
                 expect(user).to_not be_valid
                 expect(user.errors).to be_present
             end
+
+            it 'does not accept if password is less than 6 characters' do
+                user = User.new
+                user.first_name = 'John'
+                user.last_name = 'Doe'
+                user.middle_name = 'M'
+                user.email = 'johndoe@email.com'
+                user.password = 'pass'
+    
+                expect(user).to_not be_valid
+                expect(user.errors).to be_present
+            end
         end
 
         context 'with valid parameters' do
