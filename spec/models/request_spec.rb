@@ -22,6 +22,13 @@ RSpec.describe Request, type: :model do
         expect(request.errors).to be_present
       end
     end
+
+    context 'with correct parameters' do
+      it 'will return a valid record' do
+
+        expect(request).to be_valid
+      end
+    end
   end
 
   describe 'Relationship' do

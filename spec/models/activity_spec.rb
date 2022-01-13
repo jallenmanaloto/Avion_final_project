@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Activity, type: :model do
+  let(:user) { FactoryBot.build(:user) }
   let(:activity) { FactoryBot.build(:activity) }
   
   describe 'sending activity record' do
@@ -19,6 +20,13 @@ RSpec.describe Activity, type: :model do
 
         expect(activity).to_not be_valid
         expect(activity.errors).to be_present
+      end
+    end
+
+    context 'with correct parameters' do
+      it 'will return a valid record' do
+
+        expect(activity).to be_valid
       end
     end
   end
