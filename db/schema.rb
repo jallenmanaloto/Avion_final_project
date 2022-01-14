@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2022_01_13_072438) do
   create_table "establishments_users", id: false, force: :cascade do |t|
     t.bigint "establishment_id", null: false
     t.bigint "user_id", null: false
+    t.index ["establishment_id", "user_id"], name: "index_establishments_users_on_establishment_id_and_user_id"
+    t.index ["user_id", "establishment_id"], name: "index_establishments_users_on_user_id_and_establishment_id"
   end
 
   create_table "requests", force: :cascade do |t|

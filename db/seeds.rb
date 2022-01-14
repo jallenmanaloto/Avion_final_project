@@ -46,3 +46,37 @@ health_users = User.create([
     role: 'health_user'
     }
 ])
+
+requests = Request.create([
+    {
+        request_type: 'Insurance',
+        name: 'Travel Insurance',
+        user_id: 2
+    },
+    {
+        request_type: 'Certification',
+        name: 'Health Certificate',
+        user_id: 2
+    },
+    {
+        request_type: 'Certification',
+        name: 'Covid Recovery Certificate',
+        user_id: 3
+    },
+    {
+        request_type: 'Swab Test',
+        name: 'Covid Swab Test',
+        user_id: 3
+    },
+    {
+        request_type: 'Vaccination',
+        name: 'Covid Vaccination',
+        user_id: 4
+    }
+])
+
+establishments = Establishment.create([
+    {
+        name: 'SM Dasmarinas',
+    }
+])
