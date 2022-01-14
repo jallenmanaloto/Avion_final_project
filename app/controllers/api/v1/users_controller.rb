@@ -3,7 +3,7 @@ module Api
         class UsersController < ApplicationController
 
             def all_positive
-                positive = User.where(covid_status: 'Positive')
+                positive = User.where(covid_status: 'positive')
 
                 render json: { positive: positive }
             end
@@ -15,7 +15,7 @@ module Api
             end
 
             def search_user
-                user = User.where('LOWER(first_name) OR LOWER(last_name) LIKE ?', "%#{params[:search].downcase}%")
+                user = User.where('LOWER(first_name) LIKE :search OR LOWER(last_name) LIKE :search', search: "%#{params[:search].downcase}%")
                 
                 render json: { user: user }
             end
