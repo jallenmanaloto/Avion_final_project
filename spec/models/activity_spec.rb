@@ -25,8 +25,13 @@ RSpec.describe Activity, type: :model do
 
     context 'with correct parameters' do
       it 'will return a valid record' do
+        new_activity = user.activities.new(
+          activity_type: 'Visit',
+          name: 'SM Megamall',
+          user_id: 1
+        )
 
-        expect(activity).to be_valid
+        expect(new_activity).to be_valid
       end
     end
   end
