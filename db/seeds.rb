@@ -12,7 +12,6 @@ admin = User.create({
     middle_name: 'jojo',
     email: 'admin@project.com',
     password: 'admin01',
-    password_confirmation: 'admin01',
     role: 'admin'
 })
 
