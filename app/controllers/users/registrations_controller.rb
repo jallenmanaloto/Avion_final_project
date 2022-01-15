@@ -1,18 +1,18 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < DeviseTokenAuth::RegistrationsController
     respond_to :json
 
     def create
-        super
         user = User.new(user_params)
 
         if user.save
-            user.update(:role => "health_user")
+            user.update(:role => "health_user", :covid_status => "negative")
         end
+        render json: { user: user }
     end
 
     private
 
     def user_params
-        params.require(:user).permit(:first_name, :middle_name, :last_name, :role)
+        params.permit(:first_name, :middle_name, :last_name, :password, :email)
     end
 end
