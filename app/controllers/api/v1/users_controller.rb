@@ -58,7 +58,7 @@ module Api
             private
 
             def user_params
-                params.require(:user).permit(:first_name, :middle_name, :last_name, :covid_status)
+                params.permit(:first_name, :middle_name, :last_name)
             end
         end
     end
