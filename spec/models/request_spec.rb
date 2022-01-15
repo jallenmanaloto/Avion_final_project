@@ -25,8 +25,13 @@ RSpec.describe Request, type: :model do
 
     context 'with correct parameters' do
       it 'will return a valid record' do
+        new_request = user.requests.new(
+          request_type: 'Certification',
+          name: 'Health Certification',
+          user_id: 1
+          )
 
-        expect(request).to be_valid
+        expect(new_request).to be_valid
       end
     end
   end
