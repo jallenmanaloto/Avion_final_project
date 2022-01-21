@@ -13,7 +13,7 @@ module Api
                 user = User.find(params[:user_id])
                 request = user.requests.build(request_params)
                 if request.save
-                    request.update(requested_by: "#{user.first_name} #{user.last_name}")
+                    request.update(requested_by: "#{user.first_name} #{user.last_name}", status: 'Pending', email: user.email)
                     render json: { request: request }
                 else
                     render json: { error: request.errors }
