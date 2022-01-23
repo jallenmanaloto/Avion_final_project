@@ -1,7 +1,7 @@
 module Api
     module V1
         class EstablishmentsController < ApplicationController
-        
+            before_action :authenticate_user!
             def index
                 establishments = Establishment.all
 
