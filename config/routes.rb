@@ -20,6 +20,10 @@ Rails.application.routes.draw do
         # get :get_users, on: :member
       end
       resource :request
+      resource :appointment do
+        get 'index/:id', to: 'appointments#index'
+        post 'make_appointment/:id', to: 'appointments#create'
+      end
     end
   end
 end
