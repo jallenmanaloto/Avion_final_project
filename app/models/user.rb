@@ -11,5 +11,6 @@ class User < ApplicationRecord
         has_many :requests
         has_many :activities
         has_many :appointments
+        has_many :items
         has_and_belongs_to_many :establishments
 end
