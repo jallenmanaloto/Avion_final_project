@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         get :user_activities, on: :member
         get :user_establishments, on: :member
         get 'user_requests/:id', to: 'users#user_requests'
+        patch 'update_details/:id', to: 'users#update'
         post :search_user, on: :member
       end
       resource :establishment do
