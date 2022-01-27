@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'api/v1/get_users/:id', to: 'api/v1/establishments#get_users'
   post 'api/v1/upload/:id', to: 'api/v1/items#create'
   get 'api/v1/item/:id', to: 'api/v1/items#show'
+  post 'api/v1/activities', to: 'api/v1/activities#create'
+  get 'api/v1/users/activities', to: 'api/v1/activities#user_activity'
 
   namespace :api do
     namespace :v1 do
