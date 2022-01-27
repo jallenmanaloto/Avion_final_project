@@ -1,7 +1,8 @@
 module Api
     module V1
         class UsersController < ApplicationController
-
+            before_action :authenticate_user!
+            
             def all_positive
                 positive = User.where(covid_status: 'positive')
 
@@ -55,10 +56,20 @@ module Api
                 render json: { user: user, requests: requests }
             end
 
+            def add_establishment
+                user = User.find(params[:id])
+                estab = Establishment.find(params[:establishment_id])
+
+                #user.update(visit: Time.current.to_s)
+                user_estab = estab << user
+
+                render json: { establishment: user_estab }
+            end
+
             private
 
             def user_params
-                params.permit(:first_name, :middle_name, :last_name)
+                params.permit(:first_name, :middle_name, :last_name, :address, :gender, :birthday)
             end
         end
     end

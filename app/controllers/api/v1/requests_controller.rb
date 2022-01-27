@@ -3,6 +3,7 @@ module Api
         class RequestsController < ApplicationController
             # before_action :get_user, only: [:create]
             before_action :authenticate_user!
+
             
             def index
                 requests = Request.all
