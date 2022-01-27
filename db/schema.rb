@@ -10,21 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_27_122400) do
+ActiveRecord::Schema.define(version: 2022_01_27_143829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
-    t.string "activity_type"
+    t.string "userFirstName"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.string "userVisit"
+    t.string "userLastName"
     t.string "userEmail"
     t.string "userAddress"
     t.string "userStatus"
+    t.string "userMiddleName"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
