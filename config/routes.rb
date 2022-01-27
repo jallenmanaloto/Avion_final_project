@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   get 'api/v1/users', to: 'api/v1/users#index'
   get 'api/v1/requests', to: 'api/v1/requests#index'
   get 'api/v1/get_users/:id', to: 'api/v1/establishments#get_users'
+  post 'api/v1/upload/:id', to: 'api/v1/items#create'
+  get 'api/v1/item/:id', to: 'api/v1/items#show'
 
   namespace :api do
     namespace :v1 do
-      resources :items, only: [:create]
       resource :users do
         get :all_positive, on: :member
         get :user_activities, on: :member
