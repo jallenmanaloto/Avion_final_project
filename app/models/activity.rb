@@ -1,4 +1,4 @@
 class Activity < ApplicationRecord
     belongs_to :user
-    validates :activity_type, :name, presence: true
+    validates :name, presence: true
 end
