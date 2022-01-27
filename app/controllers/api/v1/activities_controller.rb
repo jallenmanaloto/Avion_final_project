@@ -1,13 +1,20 @@
 module Api
     module V1
         class ActivitiesController < ApplicationController
+
+            def index
+                user = User.find(params[:id])
+                activities = user.activities
+
+                render json: activities
+            end
             
             def create
                 user = User.find_by(uid: params[:uid])
                 activity = user.activities.create(activities_params)
 
                 if activity.save
-                    activity.update(:userVisit => "#{user.first_name} #{user.last_name}", :userEmail => user.email, :userAddress => user.address, :userStatus => user.covid_status)
+                    activity.update(:userFirstName => user.first_name, :userMiddleName => user.middle_name, :userLastName => user.last_name, :userEmail => user.email, :userAddress => user.address, :userStatus => user.covid_status)
                     render json: { activity: activity, user: user }
                 else
                     render json: {error: activity.errors}
