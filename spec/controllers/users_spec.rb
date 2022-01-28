@@ -9,10 +9,6 @@ describe 'Users request', type: :request do
         it 'returns all users' do 
             expect(JSON.parse(response.body).size).to_not be_nil
         end
-
-        it 'returns a status code 200' do
-            expect(response).to have_http_status(:success)
-        end
     end
 
     context 'Getting list of User with covid_status of Positive' do
@@ -21,10 +17,6 @@ describe 'Users request', type: :request do
         it 'returns all users as a Hash' do 
             expect(JSON.parse(response.body)).to be_an_instance_of(Hash)
         end
-
-        it 'returns a status code 200' do
-            expect(response).to have_http_status(:success)
-        end
     end
 
     context 'Posting request to search for a user on search_user method' do
@@ -32,10 +24,6 @@ describe 'Users request', type: :request do
 
         it 'returns all users as a Hash' do 
             expect(JSON.parse(response.body)).to be_an_instance_of(Hash)
-        end
-
-        it 'returns a status code 200' do
-            expect(response).to have_http_status(:success)
         end
     end
 
@@ -49,10 +37,6 @@ describe 'Users request', type: :request do
         it 'returns all activities if not empty' do 
             expect(JSON.parse(response.body).size).to_not be_nil
         end
-
-        it 'returns a status code 200' do
-            expect(response).to have_http_status(:success)
-        end
     end
 
     context 'GET request to get all establishment that user has been to' do
@@ -65,10 +49,6 @@ describe 'Users request', type: :request do
         it 'returns list establishment if not empty' do 
             expect(JSON.parse(response.body).size).to_not be_nil
         end
-
-        it 'returns a status code 200' do
-            expect(response).to have_http_status(:success)
-        end
     end
 
     context 'GET request to get all requests made by user' do
@@ -80,10 +60,6 @@ describe 'Users request', type: :request do
 
         it 'returns list of requests if not empty' do 
             expect(JSON.parse(response.body).size).to_not be_nil
-        end
-
-        it 'returns a status code 200' do
-            expect(response).to have_http_status(:success)
         end
     end
 end
