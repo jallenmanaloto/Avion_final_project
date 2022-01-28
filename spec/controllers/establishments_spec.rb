@@ -9,10 +9,6 @@ describe 'Establishment request', type: :request do
         it 'returns a hash containing list of all establishments' do
             expect(JSON.parse(response.body).size).to_not be_nil
         end
-
-        it 'returns a status of success' do
-            expect(response).to have_http_status(:success)
-        end
     end
 
     context 'GET the list of all users that has been in the establishment' do
@@ -20,10 +16,6 @@ describe 'Establishment request', type: :request do
 
         it 'returns a hash containing list of all establishments if not empty' do
             expect(JSON.parse(response.body).size).to_not be_nil
-        end
-
-        it 'returns a status of success' do
-            expect(response).to have_http_status(:success)
         end
 
         it 'returns all users as a Hash' do 
