@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :appointment do
-    appointment_type { "MyString" }
-    appointment_name { "MyString" }
-    appointment_date { "MyString" }
+    atype { "Certification" }
+    aname { "Health Certificate" }
+    adate { "01-01-2020" }
+    atime { '8:00AM' }
   end
 end
