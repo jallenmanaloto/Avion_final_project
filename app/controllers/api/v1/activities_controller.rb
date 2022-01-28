@@ -1,7 +1,7 @@
 module Api
     module V1
         class ActivitiesController < ApplicationController
-            before_action :authenticate_user!
+            before_action :authenticate_user!, except: [:create]
 
             def index
                 user = User.find(params[:id])
