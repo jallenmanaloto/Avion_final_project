@@ -110,5 +110,21 @@ RSpec.describe User, type: :model do
                 expect(user.macro).to eq(:has_and_belongs_to_many)
             end
         end
+
+        context 'with Appointment model' do
+            it 'has_many association' do
+                user = User.reflect_on_association(:appointments)
+
+                expect(user.macro).to eq(:has_many)
+            end
+        end
+
+        context 'with Item model' do
+            it 'has_many association' do
+                user = User.reflect_on_association(:items)
+
+                expect(user.macro).to eq(:has_many)
+            end
+        end
     end
 end
