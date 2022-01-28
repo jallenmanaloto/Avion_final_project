@@ -8,7 +8,7 @@ RSpec.describe Activity, type: :model do
     context 'with lacking parameters' do
       it 'will return an error if name is not present' do
         activity = Activity.new
-        activity.activity_type = 'Visit'
+        activity.name = 'Visit'
 
         expect(activity).to_not be_valid
         expect(activity.errors).to be_present
@@ -26,7 +26,6 @@ RSpec.describe Activity, type: :model do
     context 'with correct parameters' do
       it 'will return a valid record' do
         new_activity = user.activities.new(
-          activity_type: 'Visit',
           name: 'SM Megamall',
           user_id: 1
         )
