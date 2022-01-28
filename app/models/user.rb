@@ -17,6 +17,6 @@ class User < ApplicationRecord
 
         def skip_confirmation
                 self.skip_confirmation!
-                self.confirm!
+                self.confirm
         end
 end
