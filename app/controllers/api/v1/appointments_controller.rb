@@ -1,6 +1,7 @@
 module Api
     module V1
         class AppointmentsController < ApplicationController
+            before_action :authenticate_user!
             
             def index
                 user = User.find(params[:id])
