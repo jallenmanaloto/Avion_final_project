@@ -4,7 +4,7 @@ module Api
             before_action :authenticate_user!
             
             def all_positive
-                positive = User.where(covid_status: 'positive')
+                positive = User.where(covid_status: 'Positive')
 
                 render json: { positive: positive }
             end
